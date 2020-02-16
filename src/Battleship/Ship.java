@@ -8,8 +8,10 @@ public class Ship {
     private Team team;
     private List<ShipPart> shipParts;
     private direction dir;
+    private String name;
 
-    public Ship(Team team, direction dir, ShipPart[] parts) {
+    public Ship(String name, Team team, direction dir, ShipPart[] parts) {
+        this.name = name;
         this.team = team;
         this.dir = dir;
         this.shipParts = new ArrayList<>(Arrays.asList(parts));
@@ -46,15 +48,30 @@ public class Ship {
     public ShipPart getShipPart(int index) {
         return this.shipParts.get(index);
     }
-    public Ship[] getShipParts() {
-        return (Ship[]) this.shipParts.toArray();
+    public ShipPart[] getShipParts() {
+        ShipPart[] parts = new ShipPart[shipParts.size()];
+        for (int s = 0; s < parts.length; s++) {
+            parts[s] = shipParts.get(s);
+        }
+        return parts;
     }
 
-    /*public void setShipParts(List ships) {
-        this.
-    }*/
+    public void setDir(Ship.direction dir) {
+        this.dir = dir;
+    }
 
-    public void placeShip() {
+    public String getName() {
+        return name;
+    }
 
+    public boolean isSunk() {
+        int sunk = 0;
+        for (ShipPart part : shipParts) {
+            if (part.isHit()) {
+                sunk++;
+            }
+        }
+
+        return shipParts.size() == sunk;
     }
 }

@@ -29,7 +29,7 @@ public class ShipTests {
         ShipPart[] parts = new ShipPart[] {part1, part2};
 
         Team team_a = new Team("A");
-        Ship big_ship = new Ship(team_a, Ship.direction.HORIZONTAL, parts);
+        Ship big_ship = new Ship("test", team_a, Ship.direction.HORIZONTAL, parts);
         ShipPart[] ship_parts = big_ship.getParts();
         assertArrayEquals(parts, ship_parts);
     }
@@ -39,7 +39,7 @@ public class ShipTests {
         ShipPart[] parts = new ShipPart[] {part2};
 
         Team team_a = new Team("A");
-        Ship big_ship = new Ship(team_a, Ship.direction.HORIZONTAL, parts);
+        Ship big_ship = new Ship("test", team_a, Ship.direction.HORIZONTAL, parts);
         assertEquals(big_ship.getDir(), Ship.direction.HORIZONTAL);
     }
 
@@ -48,7 +48,7 @@ public class ShipTests {
         ShipPart[] parts = new ShipPart[] {part1, part2};
 
         Team team_a = new Team("A");
-        Ship big_ship = new Ship(team_a, Ship.direction.HORIZONTAL, parts);
+        Ship big_ship = new Ship("test", team_a, Ship.direction.HORIZONTAL, parts);
         assertEquals(part1, big_ship.getFirst());
     }
 
@@ -57,7 +57,7 @@ public class ShipTests {
         ShipPart[] parts = new ShipPart[] {part1, part2};
 
         Team team_a = new Team("A");
-        Ship big_ship = new Ship(team_a, Ship.direction.HORIZONTAL, parts);
+        Ship big_ship = new Ship("test", team_a, Ship.direction.HORIZONTAL, parts);
         assertEquals(part2, big_ship.getLast());
     }
 
@@ -66,7 +66,7 @@ public class ShipTests {
         ShipPart[] parts = new ShipPart[] {part1, part2};
 
         Team team_a = new Team("A");
-        Ship big_ship = new Ship(team_a, Ship.direction.HORIZONTAL, parts);
+        Ship big_ship = new Ship("test", team_a, Ship.direction.HORIZONTAL, parts);
         assertEquals(part2, big_ship.getShipPart(1));
     }
 

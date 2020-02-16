@@ -33,6 +33,10 @@ public class ShipPart {
         return this.hit;
     }
 
+    public void setHit() {
+        this.hit = true;
+    }
+
     public static void setSpaces(ShipPart[] parts, Space[] spaces) {
         if (parts.length == spaces.length) {
             for (int part = 0; part < parts.length; part++) {

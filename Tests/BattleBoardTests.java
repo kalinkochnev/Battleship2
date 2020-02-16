@@ -9,11 +9,12 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BattleBoardTests {
-    BattleBoard board = BattleBoard.blankBoard();
+    Team teamA = new Team("A");
+    BattleBoard board = BattleBoard.blankBoard(teamA);
 
     @AfterEach
     void resetBoard() {
-        board = BattleBoard.blankBoard();
+        board = BattleBoard.blankBoard(teamA);
     }
 
     @Test
@@ -116,7 +117,7 @@ public class BattleBoardTests {
     void testSetSpaces() {
         Team black = new Team("black");
         ShipPart[] parts = ShipPart.generateParts(6, false);
-        Ship ship = new Ship(black, Ship.direction.HORIZONTAL, parts);
+        Ship ship = new Ship("test", black, Ship.direction.HORIZONTAL, parts);
         Space origin = new Space(0, 0);
         board.setSpaces(origin, ship);
 
